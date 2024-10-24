@@ -1,0 +1,47 @@
+name: Create PRs on Branch Updates
+
+on:
+
+  push:
+
+    branches:
+
+      - main
+
+
+
+jobs:
+
+  create-prs:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - name: Get all branches
+
+        run: | 
+
+          git branch --remote --list | grep -v 'remotes/origin/HEAD' > branches.txt
+
+      - name: Loop through branches and create PRs
+
+        run: | 
+
+          while read branch; do
+
+            git checkout -b "$branch"
+
+            git pull origin "$branch"
+
+            git merge origin/main
+
+            git push origin "$branch"
+
+            # Use a GitHub Action to create a PR for the current branch against 'main'
+
+            # (replace with the appropriate action from the marketplace)
+
+          done < branches.txt
