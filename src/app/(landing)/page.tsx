@@ -40,7 +40,7 @@ export default function Home() {
       </section>
       <footer className='bg-gray-800 text-white py-6'>
         <div className='container mx-auto text-center'>
-          <p>&copy; 2023 Membership System. All rights reserved.</p>
+          <p>&copy; 2024 All rights reserved</p>
           <nav className='flex justify-center gap-4 mt-4'>
             <a className='hover:text-gray-400' href=''>Privacy Policy</a>
             <a className='hover:text-gray-400' href=''>Terms of Service</a>
